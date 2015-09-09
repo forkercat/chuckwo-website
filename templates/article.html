@@ -1,0 +1,157 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link rel="shortcut icon" href="{% static 'blog/icons/favicon.ico' %}"> -->
+    <title>chuck's blog - welcome</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="chuck's blog - chuckwo">
+    <meta name="author" content="chuck">
+    <!-- <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui"> -->
+    
+    <style type="text/css">
+
+    *{margin:0;}
+
+    body{
+        background:#f8f8f8;
+    font-family:"Microsoft Yahei";
+    }
+
+    .navbox{
+        height:60px;
+        width:100%;
+        background:#364556;
+    }
+
+    .navbar{
+        width:70%;
+        margin:0 auto;
+    }
+
+    .blog-title{
+        color:#ffffff;
+        font-family:sans-serif;
+        font-weight:normal;
+    }
+
+    .blog-intro{
+        color:#ffffff;
+        font-family:sans-serif;
+        font-weight:lighter;
+    }
+
+    .main{
+        width:70%;
+        /*height:100px;*/
+        margin:0 auto;
+        padding-top: 1em;
+        /*border:1px solid #999;*/
+    }
+
+    .article{
+        /*background:#eeeeee;*/
+        padding-top: 1.0em;
+        padding-bottom: 0.5em;
+    }
+
+    .title{
+        color:#364556;
+        font-family:sans-serif;
+        font-size: 26px;
+        font-weight:normal;
+        padding-top: 0.5em;
+        padding-bottom: 0.3em;
+    }
+
+    .authorDate{
+        color:#364556;
+        font-family:sans-serif;
+        font-weight:lighter;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
+    .body{
+        color:#353535;
+        font-family:sans-serif;
+        font-weight:lighter;
+        font-size: 18px;
+        padding-top: 0.6em;
+        padding-bottom: 0.1em;
+        line-height: 1.4;
+    }
+
+    .backbutton{
+        width:70%;
+        margin:0 auto;
+        font-family:sans-serif;
+        font-weight:normal;
+        font-size: 19px;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
+    .bottom{
+        height:40px;
+        width:100%;
+        font-family:sans-serif;
+        font-weight:normal;
+        font-size: 18px;
+        background:#cccccc;
+        text-align:center;
+        line-height:40px;
+    }
+
+    a:hover{
+        text-decoration: underline !important
+    }
+
+
+</style>
+</head>
+
+<body>
+
+<div class="navbox">
+    <div class="navbar">
+        <h1 class="blog-title"><a href="http://www.chuckwo.com" style="text-decoration:none;color:#ffffff;">{{ header.title }}</a></h1>
+        <h4 class="blog-intro">{{ header.intro }}</h4>
+    </div>
+</div>
+
+<div class="main">
+    <img src="/static/blog/images/shortcut.png" title="That's not me!" width=90 height=90 align="right" />
+    <div class="article">
+
+        <div class="title">
+            <p title="{{ post.title }}"><a href="?article={{ post.id }}" style="color:#364556;text-decoration:none">{{ post.title }}</a></p>
+        </div>
+        <div class="authorDate">
+            <p>{{ post.timestamp | date:"F jS, Y" }} by <b>{{ post.author }}</b>,&nbsp&nbsp {{ post.like }} people <a href="?like_id={{ post.id }}"><img src="/static/blog/images/like.png" title="like" width="28" height="28"/></a> it. </p>
+        </div>
+
+        <div class="body">
+            <p>{{ post.body | safe }}</p>
+        </div>
+
+    </div>
+</div>
+<br/>
+
+<div class="backbutton">
+    <span align="left">
+        <p><a href=".." style="text-decoration:none;color:#364556;">BACK</a></p>
+    </span>
+</div>
+
+<br/>
+<div class="bottom">
+    <p>chuck©2015 <a href="https://github.com/chuckwong" style="color:#364556;text-decoration:none">github</a> | <a href="http://weibo.com/masony" style="color:#364556;text-decoration:none">weibo</a> | <a href="http://facebook.com/chuckwangg" style="color:#364556;text-decoration:none">facebook</a> | <a href="Mailto:14jhwang@stu.edu.cn"style="color:#364556;text-decoration:none">stumail</a> | <a href="Mailto:junhaowanggg@gmail.com"style="color:#364556;text-decoration:none">gmail</a></p>
+</div>
+
+</body>
+
+</html>
